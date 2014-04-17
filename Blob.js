@@ -8,9 +8,9 @@ function Blob(space, mass, position, velocity) {
   var r = this.radius;
   var innerWidth = this._space._width - 2 * r;
   this._position = position ? position : [0, 0].map(
-      function(x) {
-          return r + Math.random() * innerWidth;
-      });
+    function(x) {
+      return r + Math.random() * innerWidth;
+    });
 
   // If we don't have a velocity, initialize it as [0, 0]
   this._velocity = velocity ? velocity : [0, 0];
