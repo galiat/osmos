@@ -1,54 +1,54 @@
 <html>
 
 <style>
-	html, body {
-		margin: 0;
-		padding: 0;
+  html, body {
+    margin: 0;
+    padding: 0;
 
-		width: 100%;
-		height: 100%;
-	}
+    width: 100%;
+  	height: 100%;
+  }
 
-	#container {
-		position: relative;
-		
-		height: 100%;
-		min-height: 670px;
-		min-width: 670px;
-		
-		margin-left: auto;
-		margin-right: auto;
-	}
+  #container {
+    position: relative;
 
-	#space {
-		position: absolute;
+    height: 100%;
+    min-height: 670px;
+    min-width: 670px;
 
-		width: 500px;
-		height: 500px;
-		
-		top: calc(50% - 500px/2);
-		left: calc(50% - 500px/2);
-		
-		background-color: black;
-	}
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #space {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: calc(50% - 500px/2);
+    left: calc(50% - 500px/2);
+
+    background-color: black;
+  }
 </style>
 
 <body>
-	<div id='container'>
-	    <div id='space'></div>
-	</div>
+  <div id='container'>
+    <div id='space'></div>
+  </div>
 
-	<script src='util.js'></script>
-	<script src='space.js'></script>
-	<script src='blob.js'></script>
-	<script>
-		var dt = 20;
-		var me;
-		window.onload = function() {
-			me = new Blob();
-			window.setInterval(function() { me.simulate(dt); me.redrawBlob(); }, dt);
-		};
-	</script>
+  <script src='util.js'></script>
+  <script src='space.js'></script>
+  <script src='blob.js'></script>
+  <script>
+    var dt = 20;
+    var me;
+    window.onload = function() {
+      me = new Blob();
+       window.setInterval(function() { me.simulate(dt); me.redrawBlob(); }, dt);
+    };
+  </script>
 </body>
 
 </html>
