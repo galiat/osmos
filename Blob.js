@@ -167,8 +167,7 @@ Blob.prototype.moveTo = function(xy) {
 /*****************************************************************************
 * Ejecting Blob(s)
 */
-var me;
-var eblob;
+
 Blob.prototype.eject = function(mass, speed, degrees) {
   // This function should create new blob of mass mass, ejecting from this
   // blob at an angle of degrees with speed speed
@@ -177,19 +176,22 @@ Blob.prototype.eject = function(mass, speed, degrees) {
   // proportional to the ejected mass*speed
 
 
-  eblob = new Blob();
+  var eblob = new Blob();
   eblob.mass = mass;
   this.mass = this.mass - mass;
-  me = this;
-  //eblob.setVelocity([speed,0]);
 
   var distance = eblob.radius + me.radius;
   var rads = toRadians(degrees);
+
+
+  eblob.setVelocity([speed*Math.sin(rads), speed*Math.cos(rads)]);
+
   var xd = distance * Math.sin(rads);
-  var yd = distance * Math.cos(rads);
+  var yd = -1 * distance * Math.cos(rads);
 
   eblob.position[0] = this.position[0] + xd;
   eblob.position[1] = this.position[1] - yd;
+  window.setInterval(function() { eblob.simulate(dt); eblob.redrawBlob(); }, dt);
 
   //eblob.velocity = [speed,speed]
   // Suggested flow:
