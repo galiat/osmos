@@ -200,6 +200,7 @@ Blob.prototype.eject = function(mass, speed, degrees) {
   // - Place it adjacent to this blob, exiting at the right direction
   // - Adjust the velocity of this blob appropriately
   eblob.redrawBlob();
+  me.redrawBlob();
 };
 
 
